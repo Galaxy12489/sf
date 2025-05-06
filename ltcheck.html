@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Выбор модели ноутбука и апгрейды</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #2b2b2b;
+    color: #a0d8f7; /* light blue text base */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .container {
+    background: #1e1e1e;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    max-width: 420px;
+    width: 100%;
+    padding: 32px 28px;
+    text-align: center;
+    border: 2px solid #3399ff; /* blue border */
+  }
+
+  h1 {
+    margin-bottom: 1em;
+    font-weight: 700;
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    color: #33cc99; /* green */
+    text-shadow: 0 0 8px #33cc99;
+  }
+
+  label {
+    font-size: 1.15rem;
+    margin-bottom: 0.7em;
+    display: block;
+    color: #3399ff; /* blue */
+  }
+
+  select {
+    width: 100%;
+    padding: 13px 16px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    background: #121212;
+    color: #33cc99;
+    box-shadow: 0 4px 15px #3399ff;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    letter-spacing: 0.03em;
+  }
+
+  select:hover, select:focus {
+    outline: none;
+    box-shadow: 0 0 16px 3px #33cc99;
+    color: #a0f7c9;
+  }
+
+  .info {
+    margin-top: 28px;
+    background: #121212;
+    padding: 22px 20px;
+    border-radius: 16px;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #a0d8f7; /* light blue */
+    text-align: left;
+    line-height: 1.6;
+    box-shadow: inset 0 0 14px 2px rgba(51,204,153,0.4);
+    user-select: none;
+  }
+
+  .highlight {
+    color: #33cc99;
+    font-weight: 700;
+  }
+
+  ul {
+    padding-left: 1.2em;
+  }
+  ul li {
+    margin: 6px 0;
+  }
+
+  @media (max-width: 440px) {
+    body {
+      padding: 15px;
+    }
+
+    .container {
+      max-width: 100%;
+      padding: 22px 18px;
+      border-width: 1.8px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    label {
+      font-size: 1rem;
+    }
+
+    select {
+      font-size: 1rem;
+      padding: 11px 14px;
+    }
+
+    .info {
+      font-size: 0.9rem;
+      padding: 16px 15px;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="container" role="main" aria-label="Выбор модели ноутбука и доступные апгрейды">
+    <h1>Выберите модель ноутбука</h1>
+    <label for="laptop-select">Модель ноутбука:</label>
+    <select id="laptop-select" aria-describedby="upgrade-info" aria-live="polite" aria-atomic="true">
+      <option value="acer-aspire-5" selected>Acer Aspire 5</option>
+      <option value="lenovo-ideapad-3">Lenovo IdeaPad 3 15ALC6</option>
+      <option value="asus-vivobook-15">ASUS VivoBook 15 X515</option>
+      <option value="hp-15s">HP 15s-fq2710ur</option>
+      <option value="dell-inspiron-15-3000">Dell Inspiron 15 3501</option>
+      <option value="acer-extensa-15">Acer Extensa 15 EX215-54</option>
+      <option value="lenovo-v14">Lenovo V14 G2</option>
+      <option value="asus-x543ma">ASUS X543MA</option>
+      <option value="hp-250-g8">HP 250 G8</option>
+      <option value="dell-vostro-3500">Dell Vostro 3500</option>
+    </select>
+    <section class="info" id="upgrade-info" tabindex="0" aria-live="polite" aria-atomic="true">
+      <p><span class="highlight">Доступные апгрейды:</span></p>
+      <ul>
+        <li>Процессор (CPU)</li>
+        <li>Видеочип (GPU)</li>
+        <li>Оперативная память (RAM)</li>
+        <li>Накопитель (SSD/HDD)</li>
+      </ul>
+      <p>Примерная цена: <strong>около 55 000 ₽</strong></p>
+      <p>Выбрана модель: <strong>Acer Aspire 5</strong></p>
+    </section>
+  </main>
+  <script>
+    const laptops = {
+      "acer-aspire-5": {
+        name: "Acer Aspire 5",
+        price: "около 55 000 ₽",
+        upgrades: ["Процессор (CPU)", "Видеочип (GPU)", "Оперативная память (RAM)", "Накопитель (SSD/HDD)"]
+      },
+      "lenovo-ideapad-3": {
+        name: "Lenovo IdeaPad 3 15ALC6",
+        price: "около 53 000 ₽",
+        upgrades: ["Процессор (CPU)", "Оперативная память (RAM)", "Накопитель (SSD/HDD)"]
+      },
+      "asus-vivobook-15": {
+        name: "ASUS VivoBook 15 X515",
+        price: "около 60 000 ₽",
+        upgrades: ["Процессор (CPU)", "Видеочип (GPU)", "Оперативная память (RAM)", "Накопитель (SSD/HDD)"]
+      },
+      "hp-15s": {
+        name: "HP 15s-fq2710ur",
+        price: "около 48 000 ₽",
+        upgrades: ["Процессор (CPU)", "Оперативная память (RAM)", "Накопитель (SSD/HDD)"]
+      },
+      "dell-inspiron-15-3000": {
+        name: "Dell Inspiron 15 3501",
+        price: "около 63 000 ₽",
+        upgrades: ["Процессор (CPU)", "Видеочип (GPU)", "Оперативная память (RAM)", "Накопитель (SSD/HDD)"]
+      },
+      "acer-extensa-15": {
+        name: "Acer Extensa 15 EX215-54",
+        price: "около 44 000 ₽",
+        upgrades: ["Процессор (CPU)", "Оперативная память (RAM)", "Накопитель (SSD/HDD)"]
+      },
+      "lenovo-v14": {
+        name: "Lenovo V14 G2",
+        price: "около 50 000 ₽",
+        upgrades: ["Процессор (CPU)", "Оперативная память (RAM)", "Накопитель (SSD/HDD)"]
+      },
+      "asus-x543ma": {
+        name: "ASUS X543MA",
+        price: "около 42 000 ₽",
+        upgrades: ["Процессор (CPU)", "Оперативная память (RAM)", "Накопитель (SSD/HDD)"]
+      },
+      "hp-250-g8": {
+        name: "HP 250 G8",
+        price: "около 58 000 ₽",
+        upgrades: ["Процессор (CPU)", "Видеочип (GPU)", "Оперативная память (RAM)", "Накопитель (SSD/HDD)"]
+      },
+      "dell-vostro-3500": {
+        name: "Dell Vostro 3500",
+        price: "около 65 000 ₽",
+        upgrades: ["Процессор (CPU)", "Видеочип (GPU)", "Оперативная память (RAM)", "Накопитель (SSD/HDD)"]
+      }
+    };
+
+    const select = document.getElementById('laptop-select');
+    const infoSection = document.getElementById('upgrade-info');
+
+    function updateInfo() {
+      const selectedVal = select.value;
+      const laptop = laptops[selectedVal];
+
+      let upgradesHTML = `<p><span class="highlight">Доступные апгрейды:</span></p><ul>`;
+      laptop.upgrades.forEach(u => {
+        upgradesHTML += `<li>${u}</li>`;
+      });
+      upgradesHTML += `</ul>`;
+      upgradesHTML += `<p>Примерная цена: <strong>${laptop.price}</strong></p>`;
+      upgradesHTML += `<p>Выбрана модель: <strong>${laptop.name}</strong></p>`;
+
+      infoSection.innerHTML = upgradesHTML;
+    }
+
+    select.addEventListener('change', updateInfo);
+
+    // Initialize on page load
+    updateInfo();
+  </script>
+</body>
+</html>
+
